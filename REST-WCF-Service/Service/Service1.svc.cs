@@ -16,5 +16,9 @@ namespace REST_WCF_Service.Service
         {
             return "Hello REST WCF Service!";
         }
+        public int DoSquare(int value)
+        {
+            return value * value;
+        }
     }
 }

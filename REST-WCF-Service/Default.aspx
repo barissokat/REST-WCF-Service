@@ -4,6 +4,9 @@
 
     <div class="jumbotron">
         <button onclick="doWork(); return false;">DoWork</button>
+        <hr />
+        <input type="text" id="squareValue"/>
+        <button onclick="doSquare(); return false;">DoSquare</button>
     </div>
 
     <script type="text/javascript">
@@ -14,6 +17,20 @@
                 url: "Service/Service1.svc/DoWork",
                 type: "GET",
                 dataType: "json",
+                success: function (result) {
+                    console.info(result);
+                }
+            });
+        }
+        function doSquare() {
+            var value = $("#squareValue").val();
+
+            $.ajax({
+                url: "Service/Service1.svc/DoSquare",
+                type: "POST",
+                data: JSON.stringify(value),
+                dataType: "json",
+                contentType: "application/json",
                 success: function (result) {
                     console.info(result);
                 }
